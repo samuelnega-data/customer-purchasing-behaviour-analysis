@@ -396,3 +396,125 @@ df.hist(ax=axes)
 plt.show()
 ```
 <Figure size 1500x1500 with 25 Axes><img width="1245" height="1221" alt="image" src="https://github.com/user-attachments/assets/5292b2ec-7d2c-48a3-a702-5360a86bb4e9" />
+
+ ``` py
+gender_preference = df.groupby(['gender', 'shopping_preference'], as_index=False)['shopping_preference'].value_counts()
+```
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gender</th>
+      <th>shopping_preference</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Female</td>
+      <td>Hybrid</td>
+      <td>145</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Female</td>
+      <td>Online</td>
+      <td>408</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Female</td>
+      <td>Store</td>
+      <td>3378</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Male</td>
+      <td>Hybrid</td>
+      <td>102</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Male</td>
+      <td>Online</td>
+      <td>378</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Male</td>
+      <td>Store</td>
+      <td>3486</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Other</td>
+      <td>Hybrid</td>
+      <td>122</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Other</td>
+      <td>Online</td>
+      <td>390</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Other</td>
+      <td>Store</td>
+      <td>3380</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+```PY
+gender = gender_preference['gender'].unique()
+
+for g in gender:
+    subset = gender_preference[gender_preference['gender'] == g]
+    
+    plt.figure(figsize=(6,6))
+    plt.pie(
+        subset['count'],
+        labels=subset['shopping_preference'],
+        autopct='%1.1f%%',  # show percentages
+        startangle=90,
+        colors=['lightcoral','lightblue','lightgreen']
+    )
+    plt.title(f'Shopping Preference Distribution for {g}')
+    plt.show()
+```
+<Figure size 600x600 with 1 Axes><img width="1074" height="786" alt="image" src="https://github.com/user-attachments/assets/5cfc8cd2-f279-447b-91f7-a44b3db6b513" />
+
+```PY
+from sklearn.preprocessing import LabelEncoder
+
+object_col = df.select_dtypes(include='object').columns.tolist()
+
+for x in object_col:
+    le = LabelEncoder()
+    df[x] = le.fit_transform(df[x])
+
+plt.figure(figsize=(12,7))
+plt.title('Correlation Heatmap')
+sns.heatmap(df.corr(), cmap='coolwarm', cbar='true')
+plt.show()
+```
+<Figure size 1200x700 with 2 Axes>![Uploading image.png…]()
+
+
