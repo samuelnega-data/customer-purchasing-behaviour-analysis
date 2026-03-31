@@ -501,6 +501,91 @@ for g in gender:
 ```
 <Figure size 600x600 with 1 Axes><img width="481" height="504" alt="image" src="https://github.com/user-attachments/assets/cda04314-d9df-4fbf-9323-c578db6202af" />
 
+ ``` py
+city_preference = df.groupby(['city_tier', 'shopping_preference'], as_index=False)['shopping_preference'].value_counts()
+```
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city_tier</th>
+      <th>shopping_preference</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tier 1</td>
+      <td>Hybrid</td>
+      <td>138</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tier 1</td>
+      <td>Online</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tier 1</td>
+      <td>Store</td>
+      <td>3444</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tier 2</td>
+      <td>Hybrid</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tier 2</td>
+      <td>Online</td>
+      <td>378</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Tier 2</td>
+      <td>Store</td>
+      <td>3371</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Tier 3</td>
+      <td>Hybrid</td>
+      <td>122</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Tier 3</td>
+      <td>Online</td>
+      <td>398</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Tier 3</td>
+      <td>Store</td>
+      <td>3429</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 ```PY
 from sklearn.preprocessing import LabelEncoder
 
