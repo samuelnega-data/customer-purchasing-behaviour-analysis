@@ -515,6 +515,7 @@ plt.title('Correlation Heatmap')
 sns.heatmap(df.corr(), cmap='coolwarm', cbar='true')
 plt.show()
 ```
-<Figure size 1200x700 with 2 Axes>![Uploading image.png…]()
+<Figure size 1200x700 with 2 Axes><img width="1074" height="786" alt="image" src="https://github.com/user-attachments/assets/fd4a3725-46ae-457b-a267-ad927156845c" />
+
 
 
