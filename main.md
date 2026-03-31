@@ -499,7 +499,7 @@ for g in gender:
     plt.title(f'Shopping Preference Distribution for {g}')
     plt.show()
 ```
-<Figure size 600x600 with 1 Axes><img width="1074" height="786" alt="image" src="https://github.com/user-attachments/assets/5cfc8cd2-f279-447b-91f7-a44b3db6b513" />
+<Figure size 600x600 with 1 Axes><img width="481" height="504" alt="image" src="https://github.com/user-attachments/assets/cda04314-d9df-4fbf-9323-c578db6202af" />
 
 ```PY
 from sklearn.preprocessing import LabelEncoder
